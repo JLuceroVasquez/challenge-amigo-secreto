@@ -46,16 +46,12 @@ function actualizarAmigo() {
 }
 // Función para sortear amigos
 function sortearAmigo() {
-    // Validamos que haya cuanto menso 2 amigos para sortear
+    // Validamos que haya cuanto menos 2 amigos para sortear
     if (listaAmigos.length<2) {
         // Mensaje de alerta en caso haya menos de 2 amigos que sortear
         alert('Por favor, ingrese al menos dos amigos');
         return;
     } else {
-        // Generar un índice aleatorio
-        let indiceAmigoSorteado = Math.floor(Math.random()*listaAmigos.length);
-        // Obtener el nombre sorteado
-        let nombreAmigoSorteado = listaAmigos[indiceAmigoSorteado];
         // Flujo si se sortearon todos los nombres
         if (listaAmigos.length==listaAmigosSorteados.length){
             // Mostrar un mensaje de alerta
@@ -64,28 +60,32 @@ function sortearAmigo() {
         } 
         // Flujo si quedan nombres por sortear
         else { 
-            // Flujo si el nombre está en la lista de sorteados
-            if (listaAmigosSorteados.includes(nombreAmigoSorteado)) {
-                // Llamamos recursivamente a la función
-                sortearAmigo();
-            }
-            // Flujo si el nombre no está en la lista de sorteados
-            else {
-                // Mostrar la lista con los resultado del sorteo
-                    // Declaramos la lista del sorteo
-                    let listaSorteoMostrada = document.querySelector('#resultado');
-                    // Limpiamos la lista del sorteo
-                    asignarTextoElemento('#resultado','');
-                    // Agregar elementos a la lista
-                    for(let i=0; i<listaAmigosSorteados.length; i++){
-                            // Crear un nuevo elemento <li>
-                            let elementoLista = document.createElement('li');
-                            elementoLista.textContent = listaAmigos[i];
-                            // Agregar el <li> al <ul>
-                            listaSorteoMostrada.appendChild(elementoLista);
-                    }
-                // Añadir el nombre a la lista de sorteados
-                listaAmigosSorteados.push(nombreAmigoSorteado);
+            // Declaramos la variable indiceAmigoSorteado
+            let nombreAmigoSorteado = '';
+
+            // Generamos un índice aleatorio que seleccione un nombre no incluido en la lista de amigos sorteados empleando un bucle while
+            do{
+                // Generar el índice aleatorio
+                let indiceAmigoSorteado = Math.floor(Math.random()*listaAmigos.length);
+                // Obtener el nombre sorteado
+                nombreAmigoSorteado = listaAmigos[indiceAmigoSorteado];
+            } while (listaAmigosSorteados.includes(nombreAmigoSorteado)); // Verificar si se encuentra en la lista de amigos sorteados
+            
+            // Añadir el nombre a la lista de sorteados
+            listaAmigosSorteados.push(nombreAmigoSorteado);
+
+            // Mostrar la lista con los resultado del sorteo
+            // Declaramos la lista del sorteo
+            let listaSorteoMostrada = document.querySelector('#resultado');
+            // Limpiamos la lista del sorteo
+            asignarTextoElemento('#resultado','');
+            // Agregar elementos a la lista
+            for(let i=0; i<listaAmigosSorteados.length; i++){
+                    // Crear un nuevo elemento <li>
+                    let elementoLista = document.createElement('li');
+                    elementoLista.textContent = `El amigo sorteado es ${listaAmigosSorteados[i]}`;
+                    // Agregar el <li> al <ul>
+                    listaSorteoMostrada.appendChild(elementoLista);
             }
         }
     }
