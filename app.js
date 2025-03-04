@@ -37,10 +37,10 @@ function actualizarAmigo() {
     for(let i=0; i<listaAmigos.length; i++){
         // Agregar elementos a la lista
             // Crear un nuevo elemento <li>
-            let lista = document.createElement('li');
-            lista.textContent = listaAmigos[i];
+            let elementoLista = document.createElement('li');
+            elementoLista.textContent = listaAmigos[i];
             // Agregar el <li> al <ul>
-            listaAmigosMostrada.appendChild(lista);
+            listaAmigosMostrada.appendChild(elementoLista);
     }
     return;
 }
@@ -71,8 +71,19 @@ function sortearAmigo() {
             }
             // Flujo si el nombre no está en la lista de sorteados
             else {
-                // Mostrar mensajes con el resultado del sorteo
-
+                // Mostrar la lista con los resultado del sorteo
+                    // Declaramos la lista del sorteo
+                    let listaSorteoMostrada = document.querySelector('#resultado');
+                    // Limpiamos la lista del sorteo
+                    asignarTextoElemento('#resultado','');
+                    // Agregar elementos a la lista
+                    for(let i=0; i<listaAmigosSorteados.length; i++){
+                            // Crear un nuevo elemento <li>
+                            let elementoLista = document.createElement('li');
+                            elementoLista.textContent = listaAmigos[i];
+                            // Agregar el <li> al <ul>
+                            listaSorteoMostrada.appendChild(elementoLista);
+                    }
                 // Añadir el nombre a la lista de sorteados
                 listaAmigosSorteados.push(nombreAmigoSorteado);
             }
