@@ -12,8 +12,15 @@ function agregarAmigo() {
         return;
     }
     else {
-        // En caso el texto no esté vacío, añadir al array amigos
-        listaAmigos.push(amigoUsuario);
+        // Verificamos que el nombre del amigo sea diferente
+        if (listaAmigos.includes(amigoUsuario)){
+            // Mostramos un mensaje de alerta
+            alert('Por favor, ingrese nombres diferentes.');
+        }
+        else {
+            // En caso el texto no esté vacío, añadir al array amigos
+            listaAmigos.push(amigoUsuario);
+        }
     }
     // Acualizamos la lista amigos mostrada en la web
     actualizarAmigo();
@@ -36,6 +43,41 @@ function actualizarAmigo() {
             listaAmigosMostrada.appendChild(lista);
     }
     return;
+}
+// Función para sortear amigos
+function sortearAmigo() {
+    // Validamos que haya cuanto menso 2 amigos para sortear
+    if (listaAmigos.length<2) {
+        // Mensaje de alerta en caso haya menos de 2 amigos que sortear
+        alert('Por favor, ingrese al menos dos amigos');
+        return;
+    } else {
+        // Generar un índice aleatorio
+        let indiceAmigoSorteado = Math.floor(Math.random()*listaAmigos.length);
+        // Obtener el nombre sorteado
+        let nombreAmigoSorteado = listaAmigos[indiceAmigoSorteado];
+        // Flujo si se sortearon todos los nombres
+        if (listaAmigos.length==listaAmigosSorteados.length){
+            // Mostrar un mensaje de alerta
+            alert('Se sortearon todos los amigos. Ingrese más amigos para sortear.');
+            return;
+        } 
+        // Flujo si quedan nombres por sortear
+        else { 
+            // Flujo si el nombre está en la lista de sorteados
+            if (listaAmigosSorteados.includes(nombreAmigoSorteado)) {
+                // Llamamos recursivamente a la función
+                sortearAmigo();
+            }
+            // Flujo si el nombre no está en la lista de sorteados
+            else {
+                // Mostrar mensajes con el resultado del sorteo
+
+                // Añadir el nombre a la lista de sorteados
+                listaAmigosSorteados.push(nombreAmigoSorteado);
+            }
+        }
+    }
 }
 // Función para asignar texto a los elementos del DOM
 function asignarTextoElemento(elemento, texto) {
