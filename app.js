@@ -55,7 +55,7 @@ function sortearAmigo() {
         // Flujo si se sortearon todos los nombres
         if (listaAmigos.length==listaAmigosSorteados.length){
             // Mostrar un mensaje indicando que se sortearon todos los amigos
-            asignarTextoElemento('p','Se sortearon todos los amigos. Ingrese más amigos para sortear.');
+            alert('Se sortearon todos los amigos. Ingrese más amigos para sortear.');
             return;
         } 
         // Flujo si quedan nombres por sortear
@@ -83,12 +83,10 @@ function sortearAmigo() {
             for(let i=0; i<listaAmigosSorteados.length; i++){
                     // Crear un nuevo elemento <li>
                     let elementoLista = document.createElement('li');
-                    elementoLista.textContent = `El amigo sorteado N° ${i++} es ${listaAmigosSorteados[i]}`;
+                    elementoLista.textContent = `El amigo sorteado es ${listaAmigosSorteados[i]}`;
                     // Agregar el <li> al <ul>
                     listaSorteoMostrada.appendChild(elementoLista);
             }
-            // Mostrar un mensaje indicando la cantidad de amigos sorteados
-            asignarTextoElemento('p',`Se sortearon ${listaAmigosSorteados.length()} de un total de ${listaAmigos.length()} amigos`);
         }
     }
 }
