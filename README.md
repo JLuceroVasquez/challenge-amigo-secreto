@@ -7,9 +7,9 @@
 </p>
 
 ### Índice
-- [Descripción del proyecto](#descripcion-del-proyecto)
-- [Funcionalidades](#funcionalidades)
-- [Aplicación](#aplicacion)
+- [Descripción del proyecto](#computer-descripción-del-proyecto)
+- [Funcionalidades](#hammer-funcionalidades)
+- [Aplicación](#aplicación)
 - [Herramientas usadas](#herramientas-usadas)
 - [Acceso al proyecto](#acceso-al-proyecto)
 - [Abrir y ejecutar el proyecto](#abrir-y-ejecutar-el-proyecto)
