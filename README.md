@@ -12,7 +12,7 @@
 - [Demostración de la Aplicación](#clapper-demostración-de-la-aplicación)
 - [Acceso al proyecto](#unlock-acceso-al-proyecto)
 - [Abrir y ejecutar el proyecto localmente](#bulb-abrir-y-ejecutar-el-proyecto-localmente)
-- [Herramientas usadas](#briefcase-herramientas-usadas)
+- [Tecnologías usadas](#briefcase-tecnologías-usadas)
 - [Desarrollador](#bowtie-desarrollador)
 
 ## :computer: Descripción del proyecto
